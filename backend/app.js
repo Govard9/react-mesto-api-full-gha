@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
@@ -11,7 +12,9 @@ const handleErrors = require('./middlewares/handleErrors');
 app.use(helmet());
 
 app.use(express.json());
+app.use(requestLogger); // логгер запросов
 app.use(router);
+app.use(errorLogger); // логгер ошибок
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
