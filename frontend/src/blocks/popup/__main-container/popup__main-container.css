@@ -1,0 +1,13 @@
+.popup__main-container {
+  background: #fff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+  z-index: 10;
+}
+
+@media screen and (max-width: 536px) {
+  .popup__main-container {
+    width: 282px;
+  }
+}

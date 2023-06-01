@@ -1,0 +1,10 @@
+@media screen and (max-width: 470px) {
+    .header__links-menu_active-burger {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+}

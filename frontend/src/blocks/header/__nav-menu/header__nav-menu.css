@@ -1,0 +1,9 @@
+.header__nav-menu {
+
+}
+
+@media screen and (max-width: 910px) {
+    .header__nav-menu {
+        padding-right: 20px;
+    }
+}

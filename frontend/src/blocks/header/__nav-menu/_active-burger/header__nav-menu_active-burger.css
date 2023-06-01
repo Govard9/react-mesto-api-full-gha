@@ -1,0 +1,13 @@
+.header__nav-menu_active-burger {
+    display: none;
+}
+
+@media screen and (max-width: 470px) {
+    .header__nav-menu_active-burger {
+        display: flex;
+        max-width: 100%;
+        height: 142px;
+        padding: 0;
+        border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+    }
+}

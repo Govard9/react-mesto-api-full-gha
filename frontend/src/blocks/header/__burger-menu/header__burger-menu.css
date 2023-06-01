@@ -1,0 +1,24 @@
+.header__burger-menu {
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    background-color: #FFFFFF;
+}
+
+.header__burger-menu::before {
+    display: flex;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin-top: 12px;
+}
+
+.header__burger-menu::after {
+    display: flex;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+    margin-top: 9px;
+}

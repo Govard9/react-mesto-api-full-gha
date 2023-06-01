@@ -1,0 +1,5 @@
+.popup__main-container_bg-transperent {
+  background: transparent;
+  box-shadow: none;
+  width: auto;
+}
