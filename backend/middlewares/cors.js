@@ -1,6 +1,6 @@
 const allowedCors = [
-  'https://api.govard.nomoredomains.rocks',
-  'http://govard.nomoredomains.rocks',
+  'https://api.mesto.govard.nomoredomains.rocks',
+  'http://mesto.govard.nomoredomains.rocks',
   'localhost:3000',
   'http://localhost',
   'http://localhost:3001',
