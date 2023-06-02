@@ -4,6 +4,7 @@ const helmet = require('helmet');
 const { errors } = require('celebrate');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const app = express();
 
@@ -24,6 +25,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 }).catch((error) => {
   console.error('Error connecting to database:', error);
 });
+
+app.use(cors());
 
 app.use(errors()); // обработчик ошибок celebrate
 

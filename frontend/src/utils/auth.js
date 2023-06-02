@@ -67,7 +67,7 @@ export class Auth extends Api {
 }
 
 const auth = new Auth(
-  'http://api.mesto.govard.nomoredomains.rocks/',
+  'http://api.mesto.govard.nomoredomains.rocks',
   '2ba4031f-f997-482b-b349-7c66bdec4853'
 );
 
