@@ -128,7 +128,7 @@ export class Api {
 }
 
 const api = new Api(
-  'https://mesto.nomoreparties.co/v1/cohort-60',
+  'http://api.mesto.govard.nomoredomains.rocks',
   '2ba4031f-f997-482b-b349-7c66bdec4853'
 );
 
