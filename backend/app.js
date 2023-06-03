@@ -15,6 +15,7 @@ app.use(helmet());
 
 app.use(express.json());
 app.use(requestLogger); // логгер запросов
+app.use(cors(corsOptions));
 app.use(router);
 app.use(errorLogger); // логгер ошибок
 
@@ -26,8 +27,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 }).catch((error) => {
   console.error('Error connecting to database:', error);
 });
-
-app.use(cors(corsOptions));
 
 app.use(errors()); // обработчик ошибок celebrate
 
