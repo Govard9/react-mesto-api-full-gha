@@ -15,6 +15,8 @@ const allowedCors = [
   'http://localhost:3000',
 ];
 
+require('dotenv').config();
+
 const corsOptions = {
   origin: allowedCors,
   optionsSuccessStatus: 200,
@@ -26,7 +28,6 @@ const app = express();
 const handleErrors = require('./middlewares/handleErrors');
 
 app.use(helmet());
-require('dotenv').config();
 
 app.use(express.json());
 app.use(requestLogger); // логгер запросов
