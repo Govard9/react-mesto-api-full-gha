@@ -9,6 +9,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 require('dotenv').config();
 
 const allowedCors = [
+  'http://api.mesto.govard.nomoredomains.rocks',
+  'https://api.mesto.govard.nomoredomains.rocks',
   'https://mesto.govard.nomoredomains.rocks',
   'http://mesto.govard.nomoredomains.rocks',
   'localhost:3000',
