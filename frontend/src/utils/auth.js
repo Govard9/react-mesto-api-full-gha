@@ -1,10 +1,9 @@
 import {Api} from "./api";
 
 export class Auth extends Api {
-  constructor(url, token) {
+  constructor(url) {
     super();
     this._url = url;
-    this._token = token;
   }
 
   checkResponse(res) {
@@ -43,8 +42,8 @@ export class Auth extends Api {
     })
       .then(this.checkResponse)
       .then((data) => {
-        if (data.token) {
-          localStorage.setItem('token', data.token);
+        if (data._id) {
+          localStorage.setItem('token', data._id);
           return data;
         }
       });
@@ -67,8 +66,7 @@ export class Auth extends Api {
 }
 
 const auth = new Auth(
-  'http://api.mesto.govard.nomoredomains.rocks',
-  '2ba4031f-f997-482b-b349-7c66bdec4853'
+  'http://api.mesto.govard.nomoredomains.rocks'
 );
 
 export default auth;

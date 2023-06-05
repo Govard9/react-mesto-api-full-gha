@@ -2,9 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
 
 const allowedCors = [
   'https://api.mesto.govard.nomoredomains.rocks',
@@ -18,8 +18,8 @@ const allowedCors = [
 const corsOptions = {
   origin: allowedCors,
   optionsSuccessStatus: 200,
-  credentials: true
-}
+  credentials: true,
+};
 
 const app = express();
 
