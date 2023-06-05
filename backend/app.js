@@ -26,6 +26,7 @@ const app = express();
 const handleErrors = require('./middlewares/handleErrors');
 
 app.use(helmet());
+require('dotenv').config();
 
 app.use(express.json());
 app.use(requestLogger); // логгер запросов
