@@ -6,16 +6,16 @@ const cors = require('cors');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+require('dotenv').config();
+
 const allowedCors = [
-  'https://api.mesto.govard.nomoredomains.rocks',
+  'https://mesto.govard.nomoredomains.rocks',
   'http://mesto.govard.nomoredomains.rocks',
   'localhost:3000',
   'http://localhost',
   'http://localhost:3001',
   'http://localhost:3000',
 ];
-
-require('dotenv').config();
 
 const corsOptions = {
   origin: allowedCors,
