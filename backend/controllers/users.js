@@ -22,7 +22,7 @@ module.exports.login = (req, res, next) => {
       return bcrypt.compare(password, user.password)
         .then((matched) => {
           if (!matched) {
-            // хеши не совпали — отклоняем промис
+            // хеши не совпали — отклоняем промисс
             return next(new ErrorAuthorization('Неправильные почта или пароль.'));
           }
           const token = jwt.sign(
