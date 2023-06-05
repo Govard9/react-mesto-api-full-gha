@@ -6,7 +6,7 @@ const cors = require('cors');
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const allowedCors = [
   'http://api.mesto.govard.nomoredomains.rocks',
