@@ -52,6 +52,11 @@ module.exports.createUser = (req, res, next) => {
     .then((user) => {
       const doNotPassword = user.toObject({ useProjection: true });
 
+      // Устанавливаем заголовки CORS
+      res.setHeader('Access-Control-Allow-Origin', 'http://api.mesto.govard.nomoredomains.rocks');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
       res.status(201)
         .send(doNotPassword);
     })
