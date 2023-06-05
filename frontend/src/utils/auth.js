@@ -14,7 +14,7 @@ export class Auth extends Api {
     return fetch(`${this._url}/signup`, {
       method: 'POST',
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -32,7 +32,7 @@ export class Auth extends Api {
     return fetch(`${this._url}/signin`, {
       method: 'POST',
       headers: {
-        authorization: this._token,
+        authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -54,7 +54,7 @@ export class Auth extends Api {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(this.checkResponse)
