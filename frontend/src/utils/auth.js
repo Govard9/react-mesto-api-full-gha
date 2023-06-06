@@ -64,7 +64,7 @@ export class Auth extends Api {
 }
 
 const auth = new Auth(
-  'http://api.mesto.govard.nomoredomains.rocks'
+  'https://api.mesto.govard.nomoredomains.rocks'
 );
 
 export default auth;

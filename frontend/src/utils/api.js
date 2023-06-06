@@ -131,7 +131,7 @@ export class Api {
 }
 
 const api = new Api(
-  'http://api.mesto.govard.nomoredomains.rocks'
+  'https://api.mesto.govard.nomoredomains.rocks'
 );
 
 export default api;
