@@ -1,5 +1,7 @@
 import logo from "../images/logo/logo.svg";
 import {useState} from "react";
+import {Navigate} from "react-router-dom";
+
 
 function Header({emailData, signOut}) {
 
@@ -16,7 +18,7 @@ function Header({emailData, signOut}) {
           <ul className="header__links-menu header__links-menu_active-burger">
             <li className="header__link-menu">{emailData}</li>
             <li className="header__link-menu">
-              <button onClick={signOut} className="header__link-out">Выйти</button>
+              <Navigate onClick={signOut} className="header__link-out" to={"/sign-in"}>Выйти</Navigate>
             </li>
           </ul>
         </nav> : ""}

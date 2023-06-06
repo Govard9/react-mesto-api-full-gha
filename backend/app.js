@@ -3,10 +3,9 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 const cors = require('cors');
+require('dotenv').config();
 const router = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-
-require('dotenv').config();
 
 const allowedCors = [
   'http://api.mesto.govard.nomoredomains.rocks',

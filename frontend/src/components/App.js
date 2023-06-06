@@ -44,6 +44,7 @@ function App() {
   const handleCloseRegister = (successReg) => {
     if (successReg) {
       setPopupTooltipOpen(false);
+      setRegisterSuccess(false);
       navigate('/sign-in');
     } else {
       setPopupTooltipOpen(false);
