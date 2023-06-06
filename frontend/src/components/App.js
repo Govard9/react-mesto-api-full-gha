@@ -99,7 +99,7 @@ function App() {
         if (res) {
           handleLogin();
           navigate("/", {replace: true});
-          setEmailData(res.data.email);
+          setEmailData(res.email);
         }
       }).catch((err) => {
         console.log(err);
