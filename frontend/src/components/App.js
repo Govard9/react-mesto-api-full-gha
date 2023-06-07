@@ -43,7 +43,7 @@ function App() {
 
   const handleCloseRegister = (successReg) => {
     if (successReg) {
-      setPopupTooltipOpen(false);
+      setPopupTooltipOpen(true);
       setRegisterSuccess(false);
       navigate('/sign-in');
     } else {
@@ -67,6 +67,7 @@ function App() {
   const handleCloseAuthorization = (successAuth) => {
     if (successAuth) {
       setPopupTooltipOpen(false);
+      setAuthorizationSuccess(false);
       handleLogin();
       navigate('/');
       tokenCheck();
@@ -91,6 +92,7 @@ function App() {
   function signOut() {
     localStorage.removeItem('token');
     setLoggedIn(false);
+    navigate('/sign-in');
   }
 
   const tokenCheck = () => {
@@ -215,17 +217,38 @@ function App() {
 
   return (
     <>
+      <CurrentUserContext.Provider value={currentUser}>
+      { loggedIn && <Header emailData={emailData} signOut={signOut}/>}
       <Routes>
-        <Route path="*" element={loggedIn ? <Navigate to="/" replace/> : <Navigate to="/sign-in" replace/>}/>
-        <Route path="/sign-in" element={<ProtectedRoute
-          element={Login}
-          loggedIn={loggedIn}
-          onAuthorization={onAuthorization}
-        />}/>
-        <Route path="/sign-up" element={<Register
-          onRegister={onRegister}
-        />}/>
+        <Route
+            path="/sign-in"
+            element={<Login onAuthorization={onAuthorization}/>}
+        />
+
+        <Route path="/sign-up" element={<Register onRegister={onRegister} />}
+        />
+
+        <Route
+            path="*"
+            element={
+              <ProtectedRoute
+                  path="/"
+                  loggedIn={loggedIn}
+                  component={Main}
+                  onAddPlace={setIsAddPlacePopupOpen}
+                  onEditProfile={setIsEditProfilePopupOpen}
+                  onEditAvatar={setIsEditAvatarPopupOpen}
+                  onCardClick={handleCardClick}
+                  cards={cards}
+                  onCardLike={handleCardLike}
+                  onCardDelete={handleCardDelete}
+              />
+            }
+        />
+
       </Routes>
+
+        <Footer/>
 
       <InfoTooltip
           popupTooltipOpen={popupTooltipOpen}
@@ -235,21 +258,6 @@ function App() {
           registerSuccess={registerSuccess}
           handleCloseRegister={handleCloseRegister}
       />
-
-      {loggedIn &&
-        <CurrentUserContext.Provider value={currentUser}>
-          <Header emailData={emailData} signOut={signOut} />
-          <Main
-            onEditProfile={handleEditProfileClick}
-            onAddPlace={handleAddPlaceClick}
-            onEditAvatar={handleEditAvatarClick}
-            onCardClick={handleCardClick}
-            onCardLike={handleCardLike}
-            onCardDelete={handleCardDelete}
-            cards={cards}
-          />
-
-          <Footer/>
 
           <EditProfilePopup
             isOpen={isEditProfilePopupOpen}
@@ -280,8 +288,6 @@ function App() {
             onClose={closeAllPopups}
           />
         </CurrentUserContext.Provider>
-      }
-
     </>
 
   )
